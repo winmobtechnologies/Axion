@@ -14,6 +14,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
@@ -48,12 +49,20 @@ public class testFacebook {
 	private String passWord;
 	private AndroidDriver wd;
 	private String screenDumpdestDir;
+	WebDriverWait wait;
 
+	
+	@Parameters({ "appPackage", "appActivity", "userName", "passWord"})		
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass(String param1 , String param2 , String param3 , String param4) {
+	
 		appiumStopServer();
 		appiumStartServer();
-	
+		
+		appPackage = param1;
+		appActivity = param2;
+		userName = param3;
+		passWord = param4;
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("appium-version", "1.0");
@@ -77,10 +86,15 @@ public class testFacebook {
 	@Test
 	public void testFacebookLogin() throws MalformedURLException {
 
+		
 		ATUReports.add("PASS", "Facebook Login Start ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
-		// First click
 
+		// First click
+		wait = new WebDriverWait(wd, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.EditText[1]")));
+		
 		wd.findElement(By
 				.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.EditText[1]"))
 				.click();
@@ -119,9 +133,10 @@ public class testFacebook {
 		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
 		
 		// Wait for Deny Location for facebook 
-		WebDriverWait wait = new WebDriverWait(wd, 60);
+		wait = new WebDriverWait(wd, 60);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[1]")));
+		
 		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
 		// Deny location
 		wd.findElement(By
@@ -144,8 +159,8 @@ public class testFacebook {
 		// Now scroll down to search Log Out button 
 		scrollToExactElement("Log");
 		ATUReports.add("PASS", "Facebook Log Out ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		WebDriverWait wait1 = new WebDriverWait(wd, 60);
-		wait1.until(ExpectedConditions.elementToBeClickable(By.name("Log Out")));
+		wait = new WebDriverWait(wd, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(By.name("Log Out")));
 		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
 		wd.findElement(By.name("Log Out")).click();
 

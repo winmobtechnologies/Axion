@@ -172,7 +172,7 @@ public class testNewDefaultSaftey {
 		return arrayObject;
 	}
 
-	@Test(dataProvider = "testInputBlackListData", enabled = true)
+	@Test(dataProvider = "testInputBlackListData", enabled = false)
 	public void testBlackListedSites(String urlStr) {
 
 		String pageBodyHTML = null;
@@ -210,7 +210,7 @@ public class testNewDefaultSaftey {
 
 	}
 
-	@Test(dataProvider = "testInputOver18Data", enabled = true)
+	@Test(dataProvider = "testInputOver18Data", enabled = false)
 	public void testOver18Sites(String urlStr) {
 		String pageBodyHTML = null;
 
@@ -247,7 +247,7 @@ public class testNewDefaultSaftey {
 		}
 	}
 
-	@Test(dataProvider = "testInputIwfData", enabled = true)
+	@Test(dataProvider = "testInputIwfData", enabled = false)
 	public void testIwfSites(String urlStr) {
 
 		String pageBodyHTML = null;
@@ -285,7 +285,7 @@ public class testNewDefaultSaftey {
 
 	}
 
-	@Test(dataProvider = "testInputTopSitesData", enabled = true)
+	@Test(dataProvider = "testInputTopSitesData", enabled = false)
 	public void testNewDefaultSafteyTopUKSites(String urlStr) {
 
 		ATUReports.add("INFO", urlStr, false);
@@ -362,7 +362,7 @@ public class testNewDefaultSaftey {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void testNewDefaultSafteyHTTPHeader() {
 
 		String urlForHeader = "http://headers.formula4leadership.com";
