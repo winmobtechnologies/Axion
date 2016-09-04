@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DAB Demo Project">
+
+<test name="TestFacebookLogin">
+
+    <classes>
+    <class name="axion.dab.test.com.testFacebook"/> 
+    </classes>
+    
+
+</test>
+
+
+
+ 
+ <test name="TestNewDefaultSaftey">
+ 
+ 	 
+  <parameter name="excelFilePath"  value="C:\Users\Administrator\workspace\axion\src\test\resources\TestInputdata.xls" /> 	 
+  <parameter name="screenDumpPath" value="C:\DAB Reports\TestDemoFeature1" /> 	 
+  <parameter name="excelSheet_UK_Top_Url" value="UK_TOP_URL" />     
+  <parameter name="excelSheet_Blacklist_Url" value="BLACKLIST_URL" /> 
+  <parameter name="excelSheet_Iwf_Url" value="IWF_URL" /> 
+  <parameter name="excelSheet_Over_18_Url" value="OVER18_URL" /> 
+  <parameter name="gatewayId" value="0A" />
+	
+    <classes>
+     <class name="axion.dab.test.com.testNewDefaultSaftey"/> 
+    </classes>
+    
+ </test> <!-- TestDemoFeature1 -->
+ 
+ 
+  <test name="TestFaceBook">
+ 
+	
+    <classes>
+    <class name="axion.dab.test.com.testFacebook"/> 
+    </classes>
+    
+ </test>  
+   
+    <listeners>
+		<listener class-name="atu.testng.reports.listeners.ATUReportsListener"></listener>
+		<listener class-name="atu.testng.reports.listeners.ConfigurationListener"></listener>
+		<listener class-name="atu.testng.reports.listeners.MethodListener"></listener>
+	</listeners>
+	
+</suite> <!-- DAB -->

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [DAB]">
+  <parameter name="excelSheetName" value="Sheet1"/>
+  <parameter name="screenDumpPath" value=".\\TestDemoFeature1"/>
+  <parameter name="excelFilePath" value="C:\\Users\\Administrator\\workspace\\axion\\src\\test\\resources\\TestInputdata.xls"/>
+  <listeners>
+    <listener class-name="atu.testng.reports.listeners.ATUReportsListener"/>
+    <listener class-name="atu.testng.reports.listeners.ConfigurationListener"/>
+    <listener class-name="atu.testng.reports.listeners.MethodListener"/>
+  </listeners>
+  <test name="TestDemoFeature1(failed)">
+    <parameter name="excelSheetName" value="Sheet1"/>
+    <parameter name="screenDumpPath" value=".\\TestDemoFeature1"/>
+    <classes>
+      <class name="axion.dab.test.com.testExcel">
+        <methods>
+          <include name="testMethodCleanUpAfterClass"/>
+          <include name="testMethodStartUpBeforeClass"/>
+          <include name="testSimO2NewDefaultSaftey"/>
+        </methods>
+      </class> <!-- axion.dab.test.com.testExcel -->
+    </classes>
+  </test> <!-- TestDemoFeature1(failed) -->
+</suite> <!-- Failed suite [DAB] -->
