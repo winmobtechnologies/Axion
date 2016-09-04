@@ -53,11 +53,7 @@ public class testFacebook {
 	public void beforeClass() {
 		appiumStopServer();
 		appiumStartServer();
-		screenDumpdestDir = "C:\\DAB Reports\\TestDemoFeature1\\facebook\\";
-		appPackage = "com.facebook.katana";
-		appActivity = "com.facebook.katana.dbl.activity.FacebookLoginActivity";
-		userName = "100013277115712";
-		passWord = "Narmadha83@";
+	
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("appium-version", "1.0");
