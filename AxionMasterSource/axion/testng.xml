@@ -34,6 +34,11 @@
  
   <test name="TestFaceBook">
  
+ 	<parameter name="screenDumpdestDir" value = "C:\\DAB Reports\\TestDemoFeature1\\facebook\\" />
+		<parameter name="appPackage"  value = "com.facebook.katana"/>
+		<parameter name="appActivity" value = "com.facebook.katana.dbl.activity.FacebookLoginActivity"/>
+		<parameter name="userName" value = "100013277115712"/>
+		<parameter name="passWord" value = "Narmadha83@"/>
 	
     <classes>
     <class name="axion.dab.test.com.testFacebook"/> 

@@ -47,13 +47,13 @@ public class testFacebook {
 	private String userName;
 	private String passWord;
 	private AndroidDriver wd;
-	private String destDir;
+	private String screenDumpdestDir;
 
 	@BeforeClass
 	public void beforeClass() {
 		appiumStopServer();
 		appiumStartServer();
-		destDir = "C:\\DAB Reports\\TestDemoFeature1\\facebook\\";
+		screenDumpdestDir = "C:\\DAB Reports\\TestDemoFeature1\\facebook\\";
 		appPackage = "com.facebook.katana";
 		appActivity = "com.facebook.katana.dbl.activity.FacebookLoginActivity";
 		userName = "100013277115712";
@@ -255,14 +255,14 @@ public class testFacebook {
 		  // Set date format to set It as screenshot file name.
 		  SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
 		  // Create folder under project with name "screenshots" provided to destDir.
-		  new File(destDir).mkdirs();
+		  new File(screenDumpdestDir).mkdirs();
 		  // Set file name using current date time.
 		  String destFile = dateFormat.format(new Date()) + ".png";
 
 		  try {
 		   // Copy paste file at destination folder location
-		   FileUtils.copyFile(scrFile, new File(destDir + "\\" + destFile));
-		   String filename = "file:///"+destDir + "\\" + destFile;
+		   FileUtils.copyFile(scrFile, new File(screenDumpdestDir + "\\" + destFile));
+		   String filename = "file:///"+screenDumpdestDir + "\\" + destFile;
 		   return filename;
 		  } catch (IOException e) {
 		   e.printStackTrace();
