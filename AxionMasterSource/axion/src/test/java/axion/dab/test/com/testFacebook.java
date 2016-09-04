@@ -39,6 +39,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
 public class testFacebook {
@@ -75,7 +76,7 @@ public class testFacebook {
 		try {
 			wd = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
+			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,22 +84,21 @@ public class testFacebook {
 
 	}
 
-	@Test
+	@Test(enabled=true)
 	public void testFacebookLogin() throws MalformedURLException {
-
-		
+     
 		ATUReports.add("PASS", "Facebook Login Start ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add(takeScreenShot(), true);
-
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
+		
 		// First click
 		wait = new WebDriverWait(wd, 60);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.EditText[1]")));
 		
-		wd.findElement(By
+	   wd.findElement(By
 				.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.EditText[1]"))
 				.click();
-
+	
 		// Clear old data
 		wd.findElement(By
 				.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.EditText[1]"))
@@ -130,14 +130,14 @@ public class testFacebook {
 				.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.Button[1]"))
 				.click();
 
-		ATUReports.add(takeScreenShot(), true);
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
 		
 		// Wait for Deny Location for facebook 
 		wait = new WebDriverWait(wd, 60);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[1]")));
 		
-		ATUReports.add(takeScreenShot(), true);
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
 		// Deny location
 		wd.findElement(By
 				.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[1]"))
@@ -147,31 +147,14 @@ public class testFacebook {
 
 		// do some clicks inside the face book app
 		ATUReports.add("PASS", "Facebook News Feed ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add(takeScreenShot(), true);
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
 		wd.findElement(By.name("News Feed")).click();
-		ATUReports.add(takeScreenShot(), true);
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
 		ATUReports.add("PASS", "Facebook Friends Request ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		wd.findElement(By.name("Friend Requests")).click();
-		ATUReports.add(takeScreenShot(), true);
-		wd.findElement(By.name("More")).click();
-
-		// Now scroll down to search Log Out button 
-		scrollToExactElement("Log");
-		ATUReports.add("PASS", "Facebook Log Out ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		wait = new WebDriverWait(wd, 60);
-		wait.until(ExpectedConditions.elementToBeClickable(By.name("Log Out")));
-		ATUReports.add(takeScreenShot(), true);
-		wd.findElement(By.name("Log Out")).click();
-
-		ATUReports.add("PASS", "Facebook Log Out ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add(takeScreenShot(), true);
-		wd.findElement(By
-				.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.Button[2]"))
-				.click();
-
-		ATUReports.add("PASS", "Facebook Log Complete ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add(takeScreenShot(), true);
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
+		logoutFacebook();
 	}
 
 	@AfterClass
@@ -183,6 +166,32 @@ public class testFacebook {
 
 	}
 
+	
+	public void logoutFacebook()
+	{
+		
+		wait = new WebDriverWait(wd, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(By.name("More")));
+		
+		wd.findElement(By.name("More")).click();
+
+		// Now scroll down to search Log Out button 
+		scrollToExactElement("Log");
+		ATUReports.add("PASS", "Facebook Log Out ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+		wait = new WebDriverWait(wd, 60);
+		wait.until(ExpectedConditions.elementToBeClickable(By.name("Log Out")));
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
+		wd.findElement(By.name("Log Out")).click();
+
+		ATUReports.add("PASS", "Facebook Log Out ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
+		wd.findElement(By
+				.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.Button[2]"))
+				.click();
+
+		ATUReports.add("PASS", "Facebook Log Complete ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+		ATUReports.add("<a href="  + takeScreenShot() + ">view screen dump</a>", true);
+	}
 	public void appiumStartServer() {
 
 		CommandLine command = new CommandLine("C:\\Program Files\\nodejs\\node");

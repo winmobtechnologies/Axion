@@ -203,7 +203,7 @@ public class testNewDefaultSaftey {
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		} catch (AssertionError e) {
-			ATUReports.add("FAIL", "BlackList Website Check : " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
+			ATUReports.add("FAIL", "BlackList Website Check searching for text {This page has been blocked} : " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		}
@@ -241,7 +241,7 @@ public class testNewDefaultSaftey {
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		} catch (AssertionError e) {
-			ATUReports.add("FAIL", "Over 18 WebSite Check : " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
+			ATUReports.add("FAIL", "Over 18 WebSite Check Searching for text {got to be over 18 for this website} : " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		}
@@ -278,7 +278,7 @@ public class testNewDefaultSaftey {
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		} catch (AssertionError e) {
-			ATUReports.add("FAIL", "IWF Access denied Check : " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
+			ATUReports.add("FAIL", "IWF Access denied Check - searching for text {Access denied} on the page: " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		}
@@ -381,7 +381,7 @@ public class testNewDefaultSaftey {
 						new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 			} catch (AssertionError e) {
-				ATUReports.add("FAIL", "Assertion Error Gateway ID " + gatewayId + "  :" + e.getMessage(), LogAs.FAILED,
+				ATUReports.add("FAIL", "Assertion Error Searching for Gateway ID  " + gatewayId + "  :" + e.getMessage(), LogAs.FAILED,
 						new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 			}

@@ -2,23 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="DAB Demo Project">
 
-<test name="TestFacebookLogin">
-
-    <classes>
-    <class name="axion.dab.test.com.testFacebook"/> 
-    </classes>
-    
-
-</test>
-
-
-
- 
  <test name="TestNewDefaultSaftey">
  
  	 
   <parameter name="excelFilePath"  value="C:\Users\Administrator\workspace\axion\src\test\resources\TestInputdata.xls" /> 	 
-  <parameter name="screenDumpPath" value="C:\DAB Reports\TestDemoFeature1" /> 	 
+  <parameter name="screenDumpPath" value="C:\DAB-Test-Results\TestNewDefaultSaftey" /> 	 
   <parameter name="excelSheet_UK_Top_Url" value="UK_TOP_URL" />     
   <parameter name="excelSheet_Blacklist_Url" value="BLACKLIST_URL" /> 
   <parameter name="excelSheet_Iwf_Url" value="IWF_URL" /> 
@@ -34,7 +22,7 @@
  
   <test name="TestFaceBook">
  
- 	    <parameter name="screenDumpdestDir" value = "C:\\DAB Reports\\TestDemoFeature1\\facebook\\" />
+ 	    <parameter name="screenDumpdestDir" value = "C:\\DAB-Test-Results\\TestFaceBook" />
 		<parameter name="appPackage"  value = "com.facebook.katana"/>
 		<parameter name="appActivity" value = "com.facebook.katana.dbl.activity.FacebookLoginActivity"/>
 		<parameter name="userName" value = "100013277115712"/>

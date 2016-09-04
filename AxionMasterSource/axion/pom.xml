@@ -19,7 +19,7 @@
 		  <scope>test</scope>
 	 </dependency>
 	  
-	<dependency>
+	   <dependency>
         <groupId>atu.testng</groupId>
         <artifactId>reports</artifactId>
         <version>5.1.1</version>
