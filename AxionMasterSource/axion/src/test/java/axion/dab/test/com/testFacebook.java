@@ -88,7 +88,7 @@ public class testFacebook {
 
 		
 		ATUReports.add("PASS", "Facebook Login Start ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 
 		// First click
 		wait = new WebDriverWait(wd, 60);
@@ -130,14 +130,14 @@ public class testFacebook {
 				.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.Button[1]"))
 				.click();
 
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 		
 		// Wait for Deny Location for facebook 
 		wait = new WebDriverWait(wd, 60);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[1]")));
 		
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 		// Deny location
 		wd.findElement(By
 				.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[1]"))
@@ -147,13 +147,13 @@ public class testFacebook {
 
 		// do some clicks inside the face book app
 		ATUReports.add("PASS", "Facebook News Feed ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 		wd.findElement(By.name("News Feed")).click();
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 		ATUReports.add("PASS", "Facebook Friends Request ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		wd.findElement(By.name("Friend Requests")).click();
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 		wd.findElement(By.name("More")).click();
 
 		// Now scroll down to search Log Out button 
@@ -161,17 +161,17 @@ public class testFacebook {
 		ATUReports.add("PASS", "Facebook Log Out ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		wait = new WebDriverWait(wd, 60);
 		wait.until(ExpectedConditions.elementToBeClickable(By.name("Log Out")));
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 		wd.findElement(By.name("Log Out")).click();
 
 		ATUReports.add("PASS", "Facebook Log Out ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 		wd.findElement(By
 				.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.Button[2]"))
 				.click();
 
 		ATUReports.add("PASS", "Facebook Log Complete ", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-		ATUReports.add("<a href=" + takeScreenShot() +" >Screen capture</a>", true);
+		ATUReports.add(takeScreenShot(), true);
 	}
 
 	@AfterClass
@@ -246,7 +246,7 @@ public class testFacebook {
 			// e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//	e.printStackTrace();
 		}
 
 		System.out.println("Appium server stop");
@@ -276,7 +276,6 @@ public class testFacebook {
 		   String filename = "file:///"+screenDumpdestDir + "\\" + destFile;
 		   return filename;
 		  } catch (IOException e) {
-		   e.printStackTrace();
 		   return "null";
 		  }
 		
