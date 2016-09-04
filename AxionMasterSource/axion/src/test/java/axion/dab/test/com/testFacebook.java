@@ -52,17 +52,17 @@ public class testFacebook {
 	WebDriverWait wait;
 
 	
-	@Parameters({ "appPackage", "appActivity", "userName", "passWord"})		
+	@Parameters({ "screenDumpdestDir","appPackage", "appActivity", "userName", "passWord"})		
 	@BeforeClass
-	public void beforeClass(String param1 , String param2 , String param3 , String param4) {
+	public void beforeClass(String param1 , String param2 , String param3 , String param4, String param5) {
 	
 		appiumStopServer();
 		appiumStartServer();
-		
-		appPackage = param1;
-		appActivity = param2;
-		userName = param3;
-		passWord = param4;
+		screenDumpdestDir = param1;
+		appPackage = param2;
+		appActivity = param3;
+		userName = param4;
+		passWord = param5;
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("appium-version", "1.0");
