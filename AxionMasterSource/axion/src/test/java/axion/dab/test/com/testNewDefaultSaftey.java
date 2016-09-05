@@ -62,8 +62,8 @@ public class testNewDefaultSaftey {
 	@Parameters({ "excelFilePath", "screenDumpPath", "excelSheet_UK_Top_Url", "excelSheet_Blacklist_Url",
 			"excelSheet_Iwf_Url", "excelSheet_Over_18_Url", "gatewayId" })
 	@BeforeClass
-	public void testMethodStartUpBeforeClass(String param1, String param2, String param3, String param4, String param5,
-			String param6, String param7) {
+	public void testNewDefaultSafteyStartUpBeforeClass(String param1, String param2, String param3, String param4,
+			String param5, String param6, String param7) {
 
 		excelFilePath = param1;
 		screenDumpPath = param2;
@@ -199,12 +199,15 @@ public class testNewDefaultSaftey {
 
 		try {
 			Assert.assertTrue(pageBodyHTML.contains("This page has been blocked"));
-			ATUReports.add("PASS", "BlackList Website Check ", LogAs.PASSED,
+			ATUReports.add("PASS", "BlackList Website Check Text {This page has been blocked} ", LogAs.PASSED,
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		} catch (AssertionError e) {
-			ATUReports.add("FAIL", "BlackList Website Check searching for text {This page has been blocked} : " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
-					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			ATUReports
+					.add("FAIL",
+							"BlackList Website Check searching for text {This page has been blocked} : " + pageBodyHTML
+									+ "  :" + e.getMessage(),
+							LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		}
 
@@ -237,12 +240,14 @@ public class testNewDefaultSaftey {
 		try {
 
 			Assert.assertTrue(pageBodyHTML.contains("got to be over 18 for this website"));
-			ATUReports.add("PASS", "Over 18 WebSite Check ", LogAs.PASSED,
+			ATUReports.add("PASS", "Over 18 WebSite Check Text {got to be over 18 for this website}", LogAs.PASSED,
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		} catch (AssertionError e) {
-			ATUReports.add("FAIL", "Over 18 WebSite Check Searching for text {got to be over 18 for this website} : " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
-					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			ATUReports.add(
+					"FAIL", "Over 18 WebSite Check Searching for text {got to be over 18 for this website} : "
+							+ pageBodyHTML + "  :" + e.getMessage(),
+					LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		}
 	}
@@ -274,12 +279,15 @@ public class testNewDefaultSaftey {
 
 		try {
 			Assert.assertTrue(pageBodyHTML.contains("Access denied"));
-			ATUReports.add("PASS", "IWF Access denied Check", LogAs.PASSED,
+			ATUReports.add("PASS", "IWF Access denied Check for Text {Access denied}", LogAs.PASSED,
 					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		} catch (AssertionError e) {
-			ATUReports.add("FAIL", "IWF Access denied Check - searching for text {Access denied} on the page: " + pageBodyHTML + "  :" + e.getMessage(), LogAs.FAILED,
-					new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			ATUReports
+					.add("FAIL",
+							"IWF Access denied Check - searching for text {Access denied} on the page: " + pageBodyHTML
+									+ "  :" + e.getMessage(),
+							LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 		}
 
@@ -381,7 +389,8 @@ public class testNewDefaultSaftey {
 						new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 			} catch (AssertionError e) {
-				ATUReports.add("FAIL", "Assertion Error Searching for Gateway ID  " + gatewayId + "  :" + e.getMessage(), LogAs.FAILED,
+				ATUReports.add("FAIL",
+						"Assertion Error Searching for Gateway ID  " + gatewayId + "  :" + e.getMessage(), LogAs.FAILED,
 						new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 			}
@@ -395,7 +404,7 @@ public class testNewDefaultSaftey {
 	}
 
 	@AfterClass
-	public void testMethodCleanUpAfterClass() {
+	public void testNewDefaultSafteyStartUpAfterClass() {
 
 		driver.quit();
 		appiumStopServer();
